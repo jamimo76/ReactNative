@@ -2,18 +2,17 @@ import React, { Component } from "react";
 import { FlatList } from "react-native";
 import { ListItem } from "react-native-elements";
 import { CAMPSITES } from "../shared/campsites";
-import CampsiteInfo from "./CampsiteInfoComponent";
 
 class Directory extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      campsites: CAMPSITES,
+      campsites: CAMPSITES
     };
   }
 
   static navigationOptions = {
-    title: "Directory",
+    title: "Directory"
   };
 
   render() {
