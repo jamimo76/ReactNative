@@ -1,0 +1,30 @@
+[33mcommit 00f25ea0fe93eb4df4f8e95834a1c0eb4fee6c9c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Merge: 5ba9695 7ee9228
+Author: Jami Orris <81092462+jamimo76@users.noreply.github.com>
+Date:   Tue Mar 1 05:13:03 2022 -0500
+
+    Merge branch 'master' of https://github.com/jamimo76/ReactNative-week-2
+
+[33mcommit 5ba9695682d6c6478704c4a06bb937ad8c458109[m
+Author: Jami Orris <81092462+jamimo76@users.noreply.github.com>
+Date:   Tue Mar 1 05:12:24 2022 -0500
+
+    using redux
+
+[33mcommit 7ee9228145bb825604a6c8dba042f1d56a7e6bcb[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Jami Orris <81092462+jamimo76@users.noreply.github.com>
+Date:   Mon Feb 28 06:03:08 2022 -0500
+
+    REACT NATIVE WEEK 2
+
+[33mcommit 0fc39fa4e920dc857d67d3418bc6ff3291fefa78[m
+Author: Jami Orris <81092462+jamimo76@users.noreply.github.com>
+Date:   Mon Feb 28 05:29:18 2022 -0500
+
+    set up for implementation json server/redux
+
+[33mcommit 7f361fc573df095d72f0a861387c40d327e2ecd0[m
+Author: Jami Orris <81092462+jamimo76@users.noreply.github.com>
+Date:   Sun Feb 27 18:37:49 2022 -0500
+
+    week 2 Icons & more
