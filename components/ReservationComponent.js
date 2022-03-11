@@ -7,8 +7,8 @@ import {
   Picker,
   Switch,
   Button,
-  Alert
-   
+  Alert,
+  
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -33,7 +33,7 @@ class Reservation extends Component {
 
   handleReservation() {
     console.log(JSON.stringify(this.state));
-  }
+  }  
 
   resetForm() {
     this.setState({
@@ -46,26 +46,6 @@ class Reservation extends Component {
 
   
   render() {
-    const showAlert= () =>
-      Alert.alert (
-        'Begin Search?',
-        'Number of Campers:' `${ this.setState.campers({campers: itemValue })}`,
-        'Hike-In?' `${this.setState({ hikeIn: value })}`,
-        'Date:' `${this.setState({ date: selectedDate, showCalendar: false })}`
-        [
-          {
-            text: "Cancel",
-            onPress: () => this.resetForm(),
-            style: "cancel"
-          },
-          {
-            text: "OK",
-            onPress: () => this.resetForm(),
-          }
-
-        ],
-        
-      )
     return (
       <ScrollView>
         <Animatable.View animation="zoomIn" duration={2000} delay={1000}>
@@ -118,18 +98,37 @@ class Reservation extends Component {
           )}
           <View style={styles.formRow}>
             <Button
-              onPress={() => this.handleReservation()}
+              onPress={() =>
+                Alert.alert(
+                  'Begin Search?',
+                  `Number of Campers: ${this.state.campers}
+                  \nHike-In? ${this.state.hikeIn ? 'Yes' : 'No'}
+                  \nDate: ${this.state.date.toLocaleDateString('en-US')}`,
+                    [
+                      {
+                        text: "Cancel",
+                        onPress: () => this.resetForm(),
+                        
+                      },
+                      {
+                        text: "OK",
+                        onPress: () => this.resetForm(),
+                      }
+                    ],
+                    { cancelable: false }
+                    )
+                  }
+               // onPress={() => this.handleReservation()}
               title="Search"
               color="#5637DD"
               accessibilityLabel="Tap me to search for available campsites to reserve"
+            
             />
-          </View>
-          
+            </View>
         </Animatable.View>
       </ScrollView>
-    );
-    
-  }
+    );            
+  }  
 }
 
 const styles = StyleSheet.create({
@@ -147,22 +146,11 @@ const styles = StyleSheet.create({
   formItem: {
     flex: 1
   },
-  model: {
-    justifyContent: "center",
-    margin: 20
-  },
-  modalTitle: {
-    fontSize: 24,
-    fontWeight: "bold",
-    backgroundColor: "#5637DD",
-    textAlign: "center",
-    color: "#fff",
-    marginBottom: 20
-  },
-  modalText: {
-    fontSize: 18,
-    margin: 10
+  button: {
+    flexDirection: 'row',
+
   }
+  
 });
 
 export default Reservation;
