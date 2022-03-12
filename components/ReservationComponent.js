@@ -7,8 +7,7 @@ import {
   Picker,
   Switch,
   Button,
-  Alert,
-  
+  Alert
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -22,8 +21,7 @@ class Reservation extends Component {
       campers: 1,
       hikeIn: false,
       date: new Date(),
-      showCalendar: false,
-      
+      showCalendar: false
     };
   }
 
@@ -31,20 +29,42 @@ class Reservation extends Component {
     title: "Reserve Campsite"
   };
 
-  handleReservation() {
-    console.log(JSON.stringify(this.state));
-  }  
-
   resetForm() {
     this.setState({
       campers: 1,
       hikeIn: false,
       date: new Date(),
-      showCalendar: false,
+      showCalendar: false
     });
   }
 
-  
+  handleReservation() {
+    console.log(JSON.stringify(this.state));
+
+    Alert.alert(
+      "Begin Search?",
+      `Number of Campers: ${this.state.campers}
+      \nHike-In? ${this.state.hikeIn ? "Yes" : "No"}
+      \nDate: ${this.state.date.toLocaleDateString("en-US")}`,
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+          onPress: () => {
+            this.resetForm(), console.log("Cancel pressed");
+          }
+        },
+        {
+          text: "OK",
+          onPress: () => {
+            this.resetForm(), console.log("Ok pressed");
+          }
+        }
+      ],
+      { cancelable: false }
+    );
+  }
+
   render() {
     return (
       <ScrollView>
@@ -54,7 +74,9 @@ class Reservation extends Component {
             <Picker
               style={styles.formItem}
               selectedValue={this.state.campers}
-              onValueChange={(itemValue) => this.setState({ campers: itemValue })}
+              onValueChange={(itemValue) =>
+                this.setState({ campers: itemValue })
+              }
             >
               <Picker.Item label="1" value="1" />
               <Picker.Item label="2" value="2" />
@@ -98,37 +120,16 @@ class Reservation extends Component {
           )}
           <View style={styles.formRow}>
             <Button
-              onPress={() =>
-                Alert.alert(
-                  'Begin Search?',
-                  `Number of Campers: ${this.state.campers}
-                  \nHike-In? ${this.state.hikeIn ? 'Yes' : 'No'}
-                  \nDate: ${this.state.date.toLocaleDateString('en-US')}`,
-                    [
-                      {
-                        text: "Cancel",
-                        onPress: () => this.resetForm(),
-                        
-                      },
-                      {
-                        text: "OK",
-                        onPress: () => this.resetForm(),
-                      }
-                    ],
-                    { cancelable: false }
-                    )
-                  }
-               // onPress={() => this.handleReservation()}
+              onPress={() => this.handleReservation()}
               title="Search"
               color="#5637DD"
               accessibilityLabel="Tap me to search for available campsites to reserve"
-            
             />
-            </View>
+          </View>
         </Animatable.View>
       </ScrollView>
-    );            
-  }  
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -147,10 +148,8 @@ const styles = StyleSheet.create({
     flex: 1
   },
   button: {
-    flexDirection: 'row',
-
+    flexDirection: "row"
   }
-  
 });
 
 export default Reservation;
