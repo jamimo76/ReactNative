@@ -182,6 +182,7 @@ class RegisterTab extends Component {
       );
     }
   }
+
   render() {
     return (
       <ScrollView>
@@ -190,7 +191,7 @@ class RegisterTab extends Component {
             <Image
               source={{ uri: this.state.imageUrl }}
               loadingIndicatorSource={require("./images/logo.png")}
-              styles={styles.image}
+              style={styles.image}
             />
             <Button title="Camera" onPress={this.getImageFromCamera} />
           </View>
@@ -227,7 +228,7 @@ class RegisterTab extends Component {
             leftIconContainerStyle={styles.formIcon}
           />
           <Input
-            placeholder="email"
+            placeholder="Email"
             leftIcon={{ type: "font-awesome", name: "envelope-o" }}
             onChangeText={(email) => this.setState({ email })}
             value={this.state.email}
@@ -281,20 +282,22 @@ const Login = createBottomTabNavigator(
 const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
-    margin: 20
+    margin: 10
   },
   formIcon: {
     marginRight: 10
   },
   formInput: {
-    padding: 10
+    padding: 8
   },
   formCheckbox: {
-    margin: 10,
+    margin: 8,
     backgroundColor: null
   },
   formButton: {
-    margin: 40
+    margin: 20,
+    marginRight: 40,
+    marginLeft: 40
   },
   imageContainer: {
     flex: 1,
